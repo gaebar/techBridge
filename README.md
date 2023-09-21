@@ -37,8 +37,8 @@ Here's a brief description of how this repository is organized:
 If you're eager to explore the assignments, start by cloning this repository to your local machine. Then, navigate to the respective folders within the `src/` directory to view each assignment in detail.
 
 ```sh
-git clone <repository_url>
-cd <repository_name>/src
+git clone https://github.com/gaebar/techbridge-java-assignments
+cd techbridge-java-assignments/src
 ```
 
 Feel free to browse through, and I am open to feedback, discussions, or collaborations to enhance these assignments further.
