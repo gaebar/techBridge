@@ -5,24 +5,18 @@ import java.util.Scanner;
 
 
 /**
- * TechBridge For Loop Assignment
- *
- * 1. A loop that will display a string 99 times
- * 2. A loop that will display every odd number from 0 to 99
- * 3. A loop that will display every even number from 0 to 99
- * 4. The same loop as 3, but in a different way.
- * 5. A loop that will sum up the odd numbers from 0 to 99 and print it at the
- * end
- * 6. A loop that will sum up the even numbers from 0 to 99 and print at the
- * end.
- * 7. A loop that finds a sum of the numbers between two numbers that are given
- * by the user, inclusive
- * 
- * Self-assigned, 8: An enhancement of Exercise 7, extend the previous task by implementing error handling to ensure the user inputs a valid number.
- *
+ * TechBridge For Loop Assignment.
+ * This class performs various exercises involving for-loops,
+ * from displaying strings and numbers to calculating sums.
  */
 
+
 public class ForLoop {
+
+    /**
+     * Entry point for the program.
+     * @param args command line arguments, not used in this program.
+     */
     public static void main(String[] args) {
 
         // Initialize Scanner object here
@@ -49,10 +43,24 @@ public class ForLoop {
         System.out.println();  // Move to the next line after displaying all odd numbers
 
 
-    // 3. A loop that will display every even number from 0 to 99 using modulo
-    System.out.print("Even numbers using modulo: ");
-    for (int i = 0; i <= 99; i++) {
-        if (i % 2 == 0) {                
+        // 3. A loop that will display every even number from 0 to 99
+        System.out.print("Even numbers using modulo: ");
+        for (int i = 0; i <= 99; i++) {
+            if (i % 2 == 0) {                
+                System.out.print(i);
+                if(i < 98){
+                    System.out.print(", ");
+                }
+                else{
+                    System.out.print(".");
+                }
+            }
+        }
+        System.out.println();
+
+        // 4. The same loop as 3, but in a different way
+        System.out.print("Even numbers using increment: ");
+        for (int i = 0; i <= 99; i += 2) {
             System.out.print(i);
             if(i < 98){
                 System.out.print(", ");
@@ -61,21 +69,7 @@ public class ForLoop {
                 System.out.print(".");
             }
         }
-    }
-    System.out.println();
-
-    // 4. The same loop as 3, but in a different way, using increment
-    System.out.print("Even numbers using increment: ");
-    for (int i = 0; i <= 99; i += 2) {
-        System.out.print(i);
-        if(i < 98){
-            System.out.print(", ");
-        }
-        else{
-            System.out.print(".");
-        }
-    }
-    System.out.println();
+        System.out.println();
 
         // 5. A loop that will sum up the odd numbers from 0 to 99 and print it at the
         // end
@@ -105,15 +99,18 @@ public class ForLoop {
         // Close scanner to prevent resource leak
         scanner.close();
     }
-        
+    
+    /**
+     * Exercise 7: Calculate the sum of all numbers between two given numbers (inclusive).
+     * @param scanner A Scanner object for reading user input.
+     */
     public static void sumOfNumbers(Scanner scanner) {
-        System.out.println("Enter the first number:");
+        System.out.println("Exercise 7: This program will find the sum of all numbers between two numbers you provide, inclusive.");
+        System.out.print("Enter the first number: ");
         int firstNumber = scanner.nextInt();
-        scanner.nextLine();  // Clear the scanner buffer
 
-        System.out.println("Enter the second number:");
+        System.out.print("Enter the second number: ");
         int secondNumber = scanner.nextInt();
-        scanner.nextLine();  // Clear the scanner buffer
 
         int sum = 0;
         for (int i = firstNumber; i <= secondNumber; i++) {
@@ -122,18 +119,23 @@ public class ForLoop {
         System.out.println("The sum of all numbers between " + firstNumber + " and " + secondNumber + " is: " + sum);
     }
     
-    // Self-assigned Exercise 8: An enhancement of Exercise 7
-    // I decided to extend the previous task by implementing error handling to ensure the user inputs a valid number.
 
+    /**
+     * Self-assigned Exercise 8: An enhancement of Exercise 7, sumOfNumbers method.
+     * Implements error handling to ensure the user inputs a valid number.
+     * @param scanner Scanner object for user input.
+     */
     public static void sumOfNumbersWithErrorHandling(Scanner scanner) {
         int start = 0, end = 0;
+
+        // Introductory message
+        System.out.println("Exercise 8: This is an enhanced version of Exercise 7 with error handling. It will ensure you enter valid numbers.");
 
         // Input handling for the first number
         while (true) {
             try {
                 System.out.print("Enter the first number: ");
                 start = scanner.nextInt();
-                scanner.nextLine();  // Clear the scanner buffer
                 break; // Exit the loop if input is valid
             } catch (InputMismatchException e) {
                 System.out.println("That's not a valid number. Please enter again.");
@@ -146,7 +148,6 @@ public class ForLoop {
             try {
                 System.out.print("Enter the second number: ");
                 end = scanner.nextInt();
-                scanner.nextLine();  // Clear the scanner buffer
                 break; // Exit the loop if input is valid
             } catch (InputMismatchException e) {
                 System.out.println("That's not a valid number. Please enter again.");
@@ -154,10 +155,15 @@ public class ForLoop {
             }
         }
 
-        int sum = 0;
-        for (int i = start; i <= end; i++) {
-            sum += i;
+        if(start <= end){
+            int sum = 0;
+            for (int i = start; i <= end; i++) {
+                sum += i;
+            }
+            System.out.println("The sum of numbers between " + start + " and " + end + " (inclusive) is: " + sum);
+        } else {
+            System.out.println("The start number should be less than or equal to the end number. No sum was calculated.");
+
         }
-        System.out.println("The sum of numbers between " + start + " and " + end + " (inclusive) is: " + sum);
     }
 }
