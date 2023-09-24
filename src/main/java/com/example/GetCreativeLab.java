@@ -20,6 +20,30 @@ import java.util.Scanner;
     - A section on revising Java data types prompts the user to input various numeric values.
     - A calculator game showcases arithmetic operations with different data types.
     - Users can play the games and explore Java's data types as many times as they like.
+
+    Methods Explained:
+    - `main`: This is the main entry point of the program. It sets up the user interface, prompts the user for 
+        their name and initial letter of their surname, and coordinates the execution of the guessing game, 
+        Java data types revision, and calculator game.
+    
+    - `playGuessingGame`: This method enables users to play a guessing game where they try to guess 
+        a random number between 1 and 100. The method provides feedback on whether the user's guess is too high, 
+        too low, or correct.
+    
+    - `reviseJavaDataTypes`: This method is designed to guide users through a review of Java's fundamental 
+        data types. Users are prompted to enter values for byte, short, int, long, float, double, and boolean. 
+        The method also educates users about the properties and range of each data type.
+    
+    - `playCalculatorGame`: In this method, users can play with a simple calculator that performs arithmetic 
+        operations on numbers of various data types. The calculator supports operations on double, long, byte, 
+        and short data types. It demonstrates addition, subtraction, multiplication, and division operations 
+        and also highlights potential issues like division by zero.
+
+    - `showcaseOperators`: This method is dedicated to providing users with a hands-on experience of the various Java operators. 
+    It will take users through unary operators, arithmetic operators, relational operators, bitwise operators, and logical operators. 
+    By inputting values, users can see the results of these operators in action, thereby deepening their understanding of how 
+    Java's operators work and when to use them.
+
     
     Learning Objectives:
     - Gain hands-on experience with Java data types and operators.
@@ -74,10 +98,14 @@ public class GetCreativeLab {
             // Invoke the calculator method
             playCalculatorGame(scanner);
 
+            // Invoke the operator showcase method
+            showcaseOperators(scanner);
+
             // Using boolean
             System.out.println("Do you want to play again? (true/false)");
             playAgain = scanner.nextBoolean();
             scanner.nextLine(); // Consume leftover newline
+
 
         } while (playAgain);
 
@@ -257,4 +285,53 @@ public class GetCreativeLab {
             System.out.println("Addition result: " + firstShort + " + " + secondShort + " = " + (short)(firstShort + secondShort));
             System.out.println("Subtraction result: " + firstShort + " - " + secondShort + " = " + (short)(firstShort - secondShort));
     }
+
+    /**
+     * Demonstrates various operations involving comparison, bitwise, logical, and shift operators.
+     *
+     * @param scanner The Scanner object for input.
+     */
+    public static void showcaseOperators(Scanner scanner) {
+        System.out.println("Time for some operator magic!");
+
+        // Demonstrate Comparison operators
+        System.out.println("Comparison operators:");
+        System.out.print("Enter a number for comparison: ");
+        int number1 = scanner.nextInt();
+        System.out.print("Enter another number for comparison: ");
+        int number2 = scanner.nextInt();
+
+        System.out.println(number1 + " < " + number2 + " : " + (number1 < number2));
+        System.out.println(number1 + " > " + number2 + " : " + (number1 > number2));
+        System.out.println(number1 + " <= " + number2 + " : " + (number1 <= number2));
+        System.out.println(number1 + " >= " + number2 + " : " + (number1 >= number2));
+        System.out.println(number1 + " == " + number2 + " : " + (number1 == number2));
+        System.out.println(number1 + " != " + number2 + " : " + (number1 != number2));
+
+        // Demonstrate Bitwise operators
+        System.out.println("Bitwise operators:");
+        System.out.println(number1 + " & " + number2 + " : " + (number1 & number2));
+        System.out.println(number1 + " | " + number2 + " : " + (number1 | number2));
+        System.out.println(number1 + " ^ " + number2 + " : " + (number1 ^ number2));
+        System.out.println("~" + number1 + " : " + (~number1));
+
+        // Demonstrate Logical operators (with boolean values)
+        System.out.println("Logical operators:");
+        System.out.print("Enter a boolean value (true/false): ");
+        boolean bool1 = scanner.nextBoolean();
+        System.out.print("Enter another boolean value (true/false): ");
+        boolean bool2 = scanner.nextBoolean();
+        System.out.println(bool1 + " && " + bool2 + " : " + (bool1 && bool2));
+        System.out.println(bool1 + " || " + bool2 + " : " + (bool1 || bool2));
+        System.out.println("!" + bool1 + " : " + (!bool1));
+
+        // Demonstrate Shift operators
+        System.out.println("Shift operators:");
+        System.out.println(number1 + " << 1 : " + (number1 << 1));
+        System.out.println(number1 + " >> 1 : " + (number1 >> 1));
+        System.out.println(number1 + " >>> 1 : " + (number1 >>> 1));
+
+        scanner.nextLine();  // Consume any leftover newline
+    }
+
 }
