@@ -6,7 +6,7 @@ import java.util.Scanner;
 * Arrays Challenge
 * I always dreamed of having a restaurant with 15 options on the menu, but I
 * don’t know what I want to put on it. I’ve decided to ask you to create the
-* items and decide how much they’ll cost because i’m not very creative. I need
+* items and decide how much they’ll cost because I’m not very creative. I need
 * 5 appetizers, 5 entrees, and 5 desserts. And then the restaurant will begin
 * taking orders. We are only willing to take 20 orders from the drive through.
 * Customers are only able to order 1 item. Every time a car pulls up the drive
@@ -20,7 +20,6 @@ import java.util.Scanner;
 
 
 public class Restaurant {
-
     public static void main(String[] args) {
         // Initialize the menu items and prices
         String[] menuItems = {
@@ -33,18 +32,21 @@ public class Restaurant {
             10.99, 11.99, 12.99, 13.99, 14.99,
             3.99, 4.99, 5.99, 6.99, 7.99
         };
-        
+
         int[] orders = new int[15];
         double totalSales = 0.0;
 
         Scanner scanner = new Scanner(System.in);
 
+        // Initialize successfulOrders to 0. This variable will keep track of
+        // the number of successfully completed orders.
         int successfulOrders = 0;
-        
+
+        // Start a loop that will run until 20 successful orders have been made.
         while (successfulOrders < 20) {
             // Display the current order number out of 20
             System.out.println("Order " + (successfulOrders + 1) + " of 20.");
-
+            
             // Display the menu
             System.out.println("Welcome to the drive-through! Here's our menu:");
             for (int j = 0; j < menuItems.length; j++) {
@@ -53,23 +55,31 @@ public class Restaurant {
 
             // Take the order
             System.out.print("Please enter the number of the item you'd like to order: ");
-            int choice = scanner.nextInt();
 
-            // Validate the choice
-            if (choice < 1 || choice > 15) {
-                System.out.println("Invalid choice. Please choose between 1 and 15.");
-                continue;
+            // Attempt to get the user's choice and validate it.
+            // If an invalid input type is entered, catch the exception and prompt again.
+            try {
+                int choice = scanner.nextInt();
+
+                // Validate that the entered choice is a menu item number (1-15).
+                if (choice < 1 || choice > 15) {
+                    System.out.println("Invalid choice. Please choose between 1 and 15.");
+                    continue;
+                }
+                
+                // Update order counts and total sales
+                orders[choice - 1]++;
+                totalSales += prices[choice - 1];
+                System.out.println("Thanks for choosing us, You've ordered " + menuItems[choice - 1] + " for $" + prices[choice - 1]);
+
+                // Add a space line for the next customer
+                System.out.println();
+
+                successfulOrders++;
+            } catch (java.util.InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid number between 1 and 15.");
+                scanner.nextLine();  // Clear the invalid input
             }
-            
-            // Update order counts and total sales
-            orders[choice - 1]++;
-            totalSales += prices[choice - 1];
-            System.out.println("Thanks for choosing us, You've ordered " + menuItems[choice - 1] + " for $" + prices[choice - 1]);
-
-            // Add a space line for the next customer
-            System.out.println();   
-
-            successfulOrders++;
 
             // If 20 orders have been reached, close the drive-through
             if (successfulOrders == 20) {
