@@ -1,4 +1,4 @@
-package com.example.class_practice.MyLibraryApp;
+package com.example.MyLibraryApp;
 
 
 // The Book class represents a single book in the library
