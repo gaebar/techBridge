@@ -5,12 +5,15 @@ import java.util.ArrayList;
 // The Library class represents the entire library system
 public class Library {
     // Class variables
-    ArrayList<Book> Books = new ArrayList<>();
-    ArrayList<Person> Customers = new ArrayList<>();
-    String libraryName;
-    String location;
-    String date;
-    boolean isOpen;
+
+    // I am using ArrayLists instead of arrays for books and customers because ArrayLists are dynamic in size
+    // and provide built-in methods for easy manipulation (add, remove, etc.)
+    private ArrayList<Book> books = new ArrayList<>();
+    private ArrayList<Person> customers = new ArrayList<>();
+    private String libraryName;
+    private String location;
+    private String date;
+    private boolean isOpen;
 
     // Constructor
     public Library(String libraryName, String location, String date) {
@@ -20,78 +23,130 @@ public class Library {
         this.isOpen = true; // Default value
     }
 
-    // 1. Method to add a new book to the library
+    /**
+     * 1. Adds a new book to the library inventory.
+     * @param book The book to add.
+     */
     public void addNewBook(Book book) {
-        Books.add(book);
+        if (book != null) {
+            books.add(book);
+        }
     }
 
-    // 2. Method to remove a book from the library inventory by ISBN
+
+    // Utilizes ArrayList's removeIf method for efficient conditional removal
+
+    /**
+     * 2. Removes a book from the library inventory based on ISBN.
+     * @param ISBN The ISBN of the book to remove.
+     */
     public void removeFromInventory(String ISBN) {
-        Books.removeIf(book -> book.ISBN.equals(ISBN));
+        books.removeIf(book -> ISBN != null && ISBN.equals(book.ISBN));
     }
 
-    // 3. Method to order a new book (simplified)
+    /**
+     * 3. Orders a new book.
+     * @param nameOfBook The name of the book to order.
+     * @return A boolean indicating the success of the order.
+     */
     public boolean orderNewBook(String nameOfBook) {
-        return true; // Just returns true for simplicity
+        // Logic to order the book
+        return true; // Simplified to always return true for now
     }
 
-    // 4. Method to check if a book is in stock by ISBN
+
+    /**
+     * 4. Checks if a book is in stock based on its ISBN.
+     * @param ISBN The ISBN of the book.
+     * @return A boolean indicating the stock status.
+     */
     public boolean isBookInStock(String ISBN) {
-        return Books.stream().anyMatch(book -> book.ISBN.equals(ISBN));
+        return books.stream().anyMatch(book -> ISBN != null && ISBN.equals(book.ISBN));
     }
 
-    // 5. Method to get the title of a book by ISBN
+    /**
+     * 5. Retrieves the title of a book based on its ISBN.
+     * @param ISBN The ISBN of the book.
+     * @return The title of the book, or a message if the book is not found.
+     */
     public String getBookTitle(String ISBN) {
-        for (Book book : Books) {
-            if (book.ISBN.equals(ISBN)) {
+        for (Book book : books) {
+            if (ISBN != null && ISBN.equals(book.ISBN)) {
                 return book.nameOfBook;
             }
         }
-        return "Did not find book";  // Returns this string if book is not found
+        return "Book not found";
     }
 
-    // 6. Method to add a new customer to the library
+    /**
+     * 6. Adds a new customer to the library.
+     * @param person The customer to add.
+     */
     public void addCustomer(Person person) {
-        Customers.add(person);
+        if (person != null) {
+            customers.add(person);
+        }
     }
 
-    // 7. Method to check if a person is already a customer by email
+    /**
+     * 7. Checks if a person is already a customer based on their email.
+     * @param email The email address to check.
+     * @return A boolean indicating if the person is already a customer.
+     */
     public boolean isCustomer(String email) {
-        return Customers.stream().anyMatch(customer -> customer.email.equals(email));
+        return customers.stream().anyMatch(customer -> email != null && email.equals(customer.email));
     }
 
-    // 8. Method to list all books in a specific genre
+    /**
+     * 8. Lists all books in a specific genre.
+     * @param genre The genre to list books for.
+     * @return An ArrayList of book titles in the specified genre.
+     */
     public ArrayList<String> listBooksInGenre(String genre) {
         ArrayList<String> bookNames = new ArrayList<>();
-        for (Book book : Books) {
-            if (book.genre.equals(genre)) {
+        for (Book book : books) {
+            if (genre != null && genre.equals(book.genre)) {
                 bookNames.add(book.nameOfBook);
             }
         }
         return bookNames;
     }
 
-    // 9. Method to get the price of a book by ISBN
-    public double getBookPrice(String ISBN) {
-        for (Book book : Books) {
+
+    /**
+     * 9. Checks if a book is available in the library based on its ISBN.
+     * @param ISBN The ISBN of the book to check.
+     * @return A boolean indicating if the book is available for checkout.
+     */
+
+    public boolean isBookAvailable(String ISBN) {
+        for (Book book : books) {
             if (book.ISBN.equals(ISBN)) {
-                return book.price;
+                return book.isAvailable;
             }
         }
-        return -1.0;  // Returns -1 if book is not found
+        return false;  // Returns false if book is not found
     }
 
-    // 10. Method to get the full name of a customer by email
-    public String getCustomerNameByEmail(String email) {
-        for (Person customer : Customers) {
-            if (customer.email.equals(email)) {
-                return customer.getFullName();
+    /**
+     * 10. Retrieves the loan period of a book based on its ISBN.
+     * @param ISBN The ISBN of the book to check.
+     * @return The loan period in days, or -1 if the book is not found.
+     */
+
+    public int getBookLoanPeriod(String ISBN) {
+        for (Book book : books) {
+            if (book.ISBN.equals(ISBN)) {
+                return book.loanPeriod;
             }
         }
-        return "Customer not found";  // Returns this string if customer is not found
+        return -1;  // Returns -1 if book is not found
     }
 
-    // 11. Method to display library information
+    /**
+     * 11. Displays the information about the library, such as its name, location, 
+     *     and operational status.
+     */
     public void displayLibraryInfo() {
         System.out.println(String.format("%-35s", "=============================="));
         System.out.println(String.format("%-35s", "          LIBRARY REPORT       "));
