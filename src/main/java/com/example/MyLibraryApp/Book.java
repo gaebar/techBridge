@@ -1,13 +1,4 @@
 package com.example.MyLibraryApp;
-
-// Notes:
-// 1. I am using Javadoc comments even for this small class as a practice exercise to familiarize myself with the Javadoc tool.
-// 2. While we haven't covered getters and setters in class yet, I've learned that making class variables private 
-//    necessitates the use of getter and setter methods. This is because private variables are not accessible outside 
-//    of the class they are defined in. Getters and setters provide controlled access to these private variables, 
-//    allowing them to be read or modified in a safe manner while preserving encapsulation and data integrity.
-
-
 /**
  * The Book class represents a single book in a library.
  * It contains details such as the name of the book, the author's name, genre, ISBN, and publish date.
@@ -15,19 +6,18 @@ package com.example.MyLibraryApp;
  */
 public class Book {
     // Class variables (set to private)
-    private String nameOfBook;
-    private String authorFirstName;
-    private String authorLastName;
-    private String genre;
-    private String ISBN;
-    private String publishDate;
-    private boolean isAvailable;
-    private int loanPeriod;
+    String nameOfBook;
+    String authorFirstName;
+    String authorLastName;
+    String genre;
+    String ISBN;
+    String publishDate;
+    boolean isAvailable;
+    int loanPeriod;
     
     /**
      * Constructor to initialize a new Book object.
-     *The 'this' keyword is used to differentiate between instance variables and constructor parameters with the same name.
-
+     * The 'this' keyword is used to differentiate between instance variables and constructor parameters with the same name.
      *
      * @param nameOfBook      The name of the book.
      * @param authorFirstName The first name of the author.

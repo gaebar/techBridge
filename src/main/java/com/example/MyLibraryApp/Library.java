@@ -8,12 +8,12 @@ public class Library {
 
     // I am using ArrayLists instead of arrays for books and customers because ArrayLists are dynamic in size
     // and provide built-in methods for easy manipulation (add, remove, etc.)
-    private ArrayList<Book> books = new ArrayList<>();
-    private ArrayList<Person> customers = new ArrayList<>();
-    private String libraryName;
-    private String location;
-    private String date;
-    private boolean isOpen;
+    ArrayList<Book> books = new ArrayList<>();
+    ArrayList<Person> customers = new ArrayList<>();
+    String libraryName;
+    String location;
+    String date;
+    boolean isOpen;
 
     // Constructor
     public Library(String libraryName, String location, String date) {
@@ -144,7 +144,21 @@ public class Library {
     }
 
     /**
-     * 11. Displays the information about the library, such as its name, location, 
+     * 11. Retrieves the full name of a customer based on their email.
+     * @param email The email address of the customer.
+     * @return The full name of the customer, or a message if the customer is not found.
+     */
+    public String getCustomerNameByEmail(String email) {
+        for (Person customer : customers) {
+            if (email != null && email.equals(customer.email)) {
+                return customer.getFullName();
+            }
+        }
+        return "Customer not found";
+    }
+
+    /**
+     * 12. Displays the information about the library, such as its name, location, 
      *     and operational status.
      */
     public void displayLibraryInfo() {

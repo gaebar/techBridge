@@ -7,10 +7,10 @@ package com.example.MyLibraryApp;
 
 public class Person {
     // Class variables
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String phoneNumber;
+    String firstName;
+    String lastName;
+    String email;
+    String phoneNumber;
 
     /**
      * Constructor to initialize a new Person object.
