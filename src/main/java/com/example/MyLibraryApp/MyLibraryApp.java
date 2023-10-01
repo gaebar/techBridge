@@ -17,8 +17,16 @@ package com.example.MyLibraryApp;
 // The App class serves as the entry point for the application
 public class MyLibraryApp {
     public static void main(String[] args) {
+
+        
         // Initialize library
         Library myLib = new Library("Sammamish Public Library", "Sammamish, WA", "1998-12-15");
+
+        // Enhanced console output
+        System.out.println(String.format("%-35s", "=============================="));
+        System.out.println(String.format("%-35s", "        WELCOME TO THE         "));
+        System.out.println(String.format("%-35s", "     SAMMAMISH LIBRARY APP     "));
+        System.out.println(String.format("%-35s", "=============================="));
 
         // Add new books
         myLib.addNewBook(new Book("La Tagliatrice di Vermi", "Gaetano", "Barreca", "Foreign Fiction", "1549976664", "2017-10-13", true, 14));
@@ -30,7 +38,7 @@ public class MyLibraryApp {
         // Scenario: Remove a book from inventory
         System.out.println("Removing book with ISBN 1549976664...");
         myLib.removeFromInventory("1549976664");
-        System.out.println("Is La Tagliatrice di Vermi still in stock? " + myLib.isBookInStock("1549976664"));
+        System.out.println("Is La Tagliatrice di Vermi still available? " + myLib.isBookAvailable("1549976664"));
 
         // Scenario: Order a new book
         System.out.println("Ordering a new book...");
@@ -38,8 +46,8 @@ public class MyLibraryApp {
             System.out.println("Successfully ordered a new book!");
         }
 
-        // Scenario: Check if the book is in stock by ISBN
-        System.out.println("Is Dopo il Funerale in stock? " + myLib.isBookInStock("1533621918"));
+        // Scenario: Check if the book is available by ISBN
+        System.out.println("Is Dopo il Funerale available? " + myLib.isBookAvailable("1533621918"));
 
         // Scenario: Get the title of a book by ISBN
         System.out.println("The book with ISBN 1533621918 is titled: " + myLib.getBookTitle("1533621918"));

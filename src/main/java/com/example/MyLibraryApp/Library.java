@@ -56,18 +56,7 @@ public class Library {
 
 
     /**
-     * 4. Checks if a book is in stock based on its ISBN.
-     * @param ISBN The ISBN of the book.
-     * @return A boolean indicating the stock status.
-     */
-
-    // NOTE: reference for Java stream = https://stackoverflow.com/questions/34174112/how-to-return-a-default-boolean-value-in-java-streams-if-element-not-found/34174187#34174187
-    public boolean isBookInStock(String ISBN) {
-        return books.stream().anyMatch(book -> ISBN != null && ISBN.equals(book.ISBN));
-    }
-
-    /**
-     * 5. Retrieves the title of a book based on its ISBN.
+     * 4. Retrieves the title of a book based on its ISBN.
      * @param ISBN The ISBN of the book.
      * @return The title of the book, or a message if the book is not found.
      */
@@ -81,7 +70,7 @@ public class Library {
     }
 
     /**
-     * 6. Adds a new customer to the library.
+     * 5. Adds a new customer to the library.
      * @param person The customer to add.
      */
     public void addCustomer(Person person) {
@@ -91,16 +80,18 @@ public class Library {
     }
 
     /**
-     * 7. Checks if a person is already a customer based on their email.
+     * 6. Checks if a person is already a customer based on their email.
      * @param email The email address to check.
      * @return A boolean indicating if the person is already a customer.
      */
+
+    // NOTE: reference for Java stream = https://stackoverflow.com/questions/34174112/how-to-return-a-default-boolean-value-in-java-streams-if-element-not-found/34174187#34174187
     public boolean isCustomer(String email) {
         return customers.stream().anyMatch(customer -> email != null && email.equals(customer.email));
     }
 
     /**
-     * 8. Lists all books in a specific genre.
+     * 7. Lists all books in a specific genre.
      * @param genre The genre to list books for.
      * @return An ArrayList of book titles in the specified genre.
      */
@@ -116,7 +107,7 @@ public class Library {
 
 
     /**
-     * 9. Checks if a book is available in the library based on its ISBN.
+     * 8. Checks if a book is available in the library based on its ISBN.
      * @param ISBN The ISBN of the book to check.
      * @return A boolean indicating if the book is available for checkout.
      */
@@ -131,7 +122,7 @@ public class Library {
     }
 
     /**
-     * 10. Retrieves the loan period of a book based on its ISBN.
+     * 9. Retrieves the loan period of a book based on its ISBN.
      * @param ISBN The ISBN of the book to check.
      * @return The loan period in days, or -1 if the book is not found.
      */
@@ -146,7 +137,7 @@ public class Library {
     }
 
     /**
-     * 11. Retrieves the full name of a customer based on their email.
+     * 10. Retrieves the full name of a customer based on their email.
      * @param email The email address of the customer.
      * @return The full name of the customer, or a message if the customer is not found.
      */
@@ -160,7 +151,7 @@ public class Library {
     }
 
     /**
-     * 12. Displays the information about the library, such as its name, location, 
+     * 11. Displays the information about the library, such as its name, location, 
      *     and operational status.
      */
     public void displayLibraryInfo() {
