@@ -60,6 +60,8 @@ public class Library {
      * @param ISBN The ISBN of the book.
      * @return A boolean indicating the stock status.
      */
+
+    // NOTE: reference for Java stream = https://stackoverflow.com/questions/34174112/how-to-return-a-default-boolean-value-in-java-streams-if-element-not-found/34174187#34174187
     public boolean isBookInStock(String ISBN) {
         return books.stream().anyMatch(book -> ISBN != null && ISBN.equals(book.ISBN));
     }
