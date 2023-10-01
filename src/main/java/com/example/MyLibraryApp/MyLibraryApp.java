@@ -6,12 +6,26 @@ package com.example.MyLibraryApp;
     - There must be at least 10 methods
     - There must be at least 10 variables
 
-    create a Person class that representes a customer along with all methods &
+    Create a Person class that representes a customer along with all methods &
     class variables.
  */
 
+ /**
+ * Architectural Note:
+ * In this small project, you might notice that I've organized the code into four different classes. 
+ * Each class serves a specific purpose and helps make the project more modular, maintainable, and easier to understand.
+ * 
+ * 1. Book Class: Manages individual book details and states, like availability and loan period.
+ * 2. Person Class: Handles customer information and activities related to the library.
+ * 3. Library Class: Acts as a centralized control for the whole library system, managing both books and customers.
+ * 4. MyLibraryApp (Main) Class: The entry point of the application where we bring all the classes together.
+ * 
+ * By segregating responsibilities this way, we can work on one class without affecting the others, making it easier 
+ * to expand or modify the project in the future!
+ */
+
 /**
- * Note:
+ * Javadoc Usage Note:
  * Even though this is a small project, I'm taking the opportunity to practice using Javadoc comments.
  * It's a great way for me to get more familiar with all the neat features Javadoc has to offer!
  */
@@ -21,7 +35,6 @@ package com.example.MyLibraryApp;
 public class MyLibraryApp {
     public static void main(String[] args) {
 
-        
         // Initialize the library instance
         Library myLib = new Library("Sammamish Public Library", "Sammamish, WA", "1998-12-15");
 
@@ -31,7 +44,6 @@ public class MyLibraryApp {
         System.out.println(String.format("%-35s", "     SAMMAMISH LIBRARY APP     "));
         System.out.println(String.format("%-35s", "=============================="));
 
-        
         // Add new books to the library
         // Create book instances and add them to the library's inventory
         Book book1 = new Book("La Tagliatrice di Vermi", "Gaetano", "Barreca", "Foreign Fiction", "1549976664", "2017-10-13", true, 14);

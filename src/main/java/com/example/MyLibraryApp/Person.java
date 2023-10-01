@@ -10,8 +10,9 @@ public class Person {
     String firstName;
     String lastName;
     String email;
-    String phoneNumber; 
-    // NOTE: I used a String for phoneNumber for several reasons:
+    String phoneNumber;
+
+    // NOTE: As the teacher explain in class, I used a String for phoneNumber for several reasons:
     // 1. Strings are immutable, providing a level of safety.
     // 2. Phone numbers can have varying formats (hyphens, spaces, parentheses, country codes, etc.),
     // which are easier to handle as strings.
