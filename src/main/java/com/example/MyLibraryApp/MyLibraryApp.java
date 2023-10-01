@@ -10,30 +10,47 @@ package com.example.MyLibraryApp;
     class variables.
  */
 
-// Note:
-// I am using Javadoc comments even for this small class as a practice exercise to familiarize myself with the Javadoc tool.
+/**
+ * Note:
+ * Even though this is a small project, I'm taking the opportunity to practice using Javadoc comments.
+ * It's a great way for me to get more familiar with all the neat features Javadoc has to offer!
+ */
 
 
-// The App class serves as the entry point for the application
+// The MyLibraryApp class serves as the entry point for the application
 public class MyLibraryApp {
     public static void main(String[] args) {
 
         
-        // Initialize library
+        // Initialize the library instance
         Library myLib = new Library("Sammamish Public Library", "Sammamish, WA", "1998-12-15");
 
-        // Enhanced console output
+        // Display welcome message
         System.out.println(String.format("%-35s", "=============================="));
         System.out.println(String.format("%-35s", "        WELCOME TO THE         "));
         System.out.println(String.format("%-35s", "     SAMMAMISH LIBRARY APP     "));
         System.out.println(String.format("%-35s", "=============================="));
 
-        // Add new books
-        myLib.addNewBook(new Book("La Tagliatrice di Vermi", "Gaetano", "Barreca", "Foreign Fiction", "1549976664", "2017-10-13", true, 14));
-        myLib.addNewBook(new Book("Dopo il Funerale", "Gaetano", "Barreca", "Foreign Novel", "1533621918", "2016-06-04", true, 19));
+        
+        // Add new books to the library
+        // Create book instances and add them to the library's inventory
+        Book book1 = new Book("La Tagliatrice di Vermi", "Gaetano", "Barreca", "Foreign Fiction", "1549976664", "2017-10-13", true, 14);
+        Book book2 = new Book("Dopo il Funerale", "Gaetano", "Barreca", "Foreign Novel", "1533621918", "2016-06-04", true, 19);
+        myLib.addNewBook(book1);
+        myLib.addNewBook(book2);
 
-        // Add a new customer
-        myLib.addCustomer(new Person("Maria", "Alvarez", "mariaal@email.com", "123-456-7890"));
+        // Confirm addition of new books
+        // Print out details of the newly added books
+        System.out.println("Successfully added the book: " + book1.toString());
+        System.out.println("Successfully added the book: " + book2.toString());
+
+        // Add a new customer to the library
+        // Create a Person instance representing a customer and add them to the library's customer list
+        Person customer1 = new Person("Maria", "Alvarez", "mariaal@email.com", "123-456-7890");
+        myLib.addCustomer(customer1);
+        // Confirm addition of new customer
+        // Print out details of the newly added customer
+        System.out.println("Successfully added the customer: " + customer1.toString());
 
         // Scenario: Remove a book from inventory
         System.out.println("Removing book with ISBN 1549976664...");
@@ -41,27 +58,25 @@ public class MyLibraryApp {
         System.out.println("Is La Tagliatrice di Vermi still available? " + myLib.isBookAvailable("1549976664"));
 
         // Scenario: Order a new book
-        System.out.println("Ordering a new book...");
-        if (myLib.orderNewBook("My Brilliant Friend")) {
-            System.out.println("Successfully ordered a new book!");
+        String bookToOrder = "My Brilliant Friend";
+        System.out.println("Ordering a new book: " + bookToOrder);
+        if (myLib.orderNewBook(bookToOrder)) {
+            System.out.println("Successfully ordered the new book: " + bookToOrder);
         }
 
-        // Scenario: Check if the book is available by ISBN
+        // Various other scenarios to demonstrate the library's functionalities
+        // Each scenario demonstrates a specific functionality of the Library class
+        System.out.println("The book with ISBN 1533621918 is titled: " + myLib.bookTitle("1533621918"));
         System.out.println("Is Dopo il Funerale available? " + myLib.isBookAvailable("1533621918"));
-
-        // Scenario: Get the title of a book by ISBN
-        System.out.println("The book with ISBN 1533621918 is titled: " + myLib.getBookTitle("1533621918"));
-
-        // Scenario: Check if Maria is a customer by email
-        System.out.println("Is Maria a customer? " + myLib.isCustomer("mariaal@email.com"));
-
-        // Scenario: Get the full name of a customer by email
-        System.out.println("Full name of the customer with email mariaal@email.com: " + myLib.getCustomerNameByEmail("mariaal@email.com"));
-
-        // Scenario: List all books in the Foreign Novel genre
         System.out.println("Books in the Foreign Novel genre: " + myLib.listBooksInGenre("Foreign Novel"));
+        System.out.println("Loan period for the book with ISBN 1533621918: " + myLib.bookLoanPeriod("1533621918") + " days");
+        System.out.println("Is Maria a customer? " + myLib.isCustomer("mariaal@email.com"));
+        System.out.println("Full name of the customer with email mariaal@email.com: " + myLib.customerNameByEmail("mariaal@email.com"));
+        
+        myLib.displayCustomerInfo("mariaal@email.com");
 
-        // Display library information
+        // Display general information about the library
+        // This method will output an overview of the library's status
         myLib.displayLibraryInfo();
     }
 }

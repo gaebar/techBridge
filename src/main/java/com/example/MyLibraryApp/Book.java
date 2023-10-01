@@ -5,7 +5,7 @@ package com.example.MyLibraryApp;
  * The book's availability and loan period are also included.
  */
 public class Book {
-    // Class variables (set to private)
+    // Class variables
     String nameOfBook;
     String authorFirstName;
     String authorLastName;
@@ -38,5 +38,23 @@ public class Book {
         this.publishDate = publishDate;
         this.isAvailable = isAvailable;
         this.loanPeriod = loanPeriod;
+    }
+
+    /**
+     * Overrides the default toString() method inherited from the Object class.
+     * 
+     * The @Override annotation is used to indicate that this method is intended to override a method in the superclass.
+     * This custom implementation provides a more informative and human-readable string representation of the Book object.
+     * It displays important attributes such as the title, author's first and last name, and ISBN.
+     * 
+     * Without this custom implementation, invoking toString() would yield a non-informative result like "Book@4e25154f," 
+     * which is the default behavior of the Object class's toString() method. This default output is generally not useful 
+     * for understanding the state of the Book object.
+     * 
+     * @return A string containing detailed information about this book, making it easier to understand the object's state.
+     */
+    @Override
+    public String toString() {
+        return String.format("Title: %s, Author: %s %s, ISBN: %s", nameOfBook, authorFirstName, authorLastName, ISBN);
     }
 }

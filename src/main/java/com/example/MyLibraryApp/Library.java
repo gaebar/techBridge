@@ -1,6 +1,8 @@
 package com.example.MyLibraryApp;
 
 import java.util.ArrayList;
+import java.util.List;
+
 
 // The Library class represents the entire library system
 public class Library {
@@ -8,8 +10,8 @@ public class Library {
 
     // I am using ArrayLists instead of arrays for books and customers because ArrayLists are dynamic in size
     // and provide built-in methods for easy manipulation (add, remove, etc.)
-    ArrayList<Book> books = new ArrayList<>();
-    ArrayList<Person> customers = new ArrayList<>();
+    List<Book> books = new ArrayList<>();
+    List<Person> customers = new ArrayList<>();
     String libraryName;
     String location;
     String date;
@@ -33,7 +35,6 @@ public class Library {
         }
     }
 
-
     // Utilizes ArrayList's removeIf method for efficient conditional removal
 
     /**
@@ -50,17 +51,15 @@ public class Library {
      * @return A boolean indicating the success of the order.
      */
     public boolean orderNewBook(String nameOfBook) {
-        // Logic to order the book
         return true; // Simplified to always return true for now
     }
-
 
     /**
      * 4. Retrieves the title of a book based on its ISBN.
      * @param ISBN The ISBN of the book.
      * @return The title of the book, or a message if the book is not found.
      */
-    public String getBookTitle(String ISBN) {
+    public String bookTitle(String ISBN) {
         for (Book book : books) {
             if (ISBN != null && ISBN.equals(book.ISBN)) {
                 return book.nameOfBook;
@@ -105,7 +104,6 @@ public class Library {
         return bookNames;
     }
 
-
     /**
      * 8. Checks if a book is available in the library based on its ISBN.
      * @param ISBN The ISBN of the book to check.
@@ -126,14 +124,14 @@ public class Library {
      * @param ISBN The ISBN of the book to check.
      * @return The loan period in days, or -1 if the book is not found.
      */
-
-    public int getBookLoanPeriod(String ISBN) {
+    public int bookLoanPeriod(String ISBN) {
         for (Book book : books) {
             if (book.ISBN.equals(ISBN)) {
                 return book.loanPeriod;
             }
         }
-        return -1;  // Returns -1 if book is not found
+        System.out.println("Book with ISBN " + ISBN + " not found.");
+        return -1;
     }
 
     /**
@@ -141,10 +139,10 @@ public class Library {
      * @param email The email address of the customer.
      * @return The full name of the customer, or a message if the customer is not found.
      */
-    public String getCustomerNameByEmail(String email) {
+    public String customerNameByEmail(String email) {
         for (Person customer : customers) {
             if (email != null && email.equals(customer.email)) {
-                return customer.getFullName();
+                return customer.fullName();
             }
         }
         return "Customer not found";
@@ -162,5 +160,22 @@ public class Library {
         System.out.println(String.format("Location: %-24s", this.location));
         System.out.println(String.format("Date Established: %-14s", this.date));
         System.out.println(String.format("Currently Open: %-20b", this.isOpen));
+    }
+
+    /**
+     * 12. Displays the detailed information of a customer based on their email.
+     * @param email The email address of the customer.
+     */
+    public void displayCustomerInfo(String email) {
+        for (Person customer : customers) {
+            if (email != null && email.equals(customer.email)) {
+                System.out.println(String.format("%-35s", "=============================="));
+                System.out.println(String.format("%-35s", "      CUSTOMER INFORMATION     "));
+                System.out.println(String.format("%-35s", "=============================="));
+                System.out.println(String.format("Name: %-28s", customer.fullName()));
+                System.out.println(String.format("Email: %-27s", customer.email));
+                System.out.println(String.format("Phone Number: %-20s", customer.phoneNumber));
+            }
+        }
     }
 }
