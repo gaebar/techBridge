@@ -1,35 +1,4 @@
 package com.example.MyLibraryApp;
-/**
- * Assignment:
- * Expand your bookstore/library class. Create all methods and class variables. 
-    Use creativity to make sure all methods and variables get used.
-    - There must be at least 10 methods
-    - There must be at least 10 variables
-
-    Create a Person class that representes a customer along with all methods &
-    class variables.
- */
-
- /**
- * Architectural Note:
- * In this small project, you might notice that I've organized the code into four different classes. 
- * Each class serves a specific purpose and helps make the project more modular, maintainable, and easier to understand.
- * 
- * 1. Book Class: Manages individual book details and states, like availability and loan period.
- * 2. Person Class: Handles customer information and activities related to the library.
- * 3. Library Class: Acts as a centralized control for the whole library system, managing both books and customers.
- * 4. MyLibraryApp (Main) Class: The entry point of the application where we bring all the classes together.
- * 
- * By segregating responsibilities this way, we can work on one class without affecting the others, making it easier 
- * to expand or modify the project in the future!
- */
-
-/**
- * Javadoc Usage Note:
- * Even though this is a small project, I'm taking the opportunity to practice using Javadoc comments.
- * It's a great way for me to get more familiar with all the neat features Javadoc has to offer!
- */
-
 
 // The MyLibraryApp class serves as the entry point for the application
 public class MyLibraryApp {
