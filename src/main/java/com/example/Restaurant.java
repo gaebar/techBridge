@@ -49,8 +49,17 @@ public class Restaurant {
             
             // Display the menu
             System.out.println("Welcome to 'Veloce Italiano' drive-through! Here's our menu:");
-            for (int j = 0; j < menuItems.length; j++) {
-                System.out.println(j + 1 + ". " + menuItems[j] + " - $" + prices[j]);
+            System.out.println("Appetizers:");
+            for (int i = 0; i < 5; i++) {
+                System.out.println((i + 1) + ". " + menuItems[i] + " - $" + prices[i]);
+            }
+            System.out.println("\nEntrees:");
+            for (int j = 5; j < 10; j++) {
+                System.out.println((j + 1) + ". " + menuItems[j] + " - $" + prices[j]);
+            }
+            System.out.println("\nDesserts:");
+            for (int k = 10; k < 15; k++) {
+                System.out.println((k + 1) + ". " + menuItems[k] + " - $" + prices[k]);
             }
 
             // Take the order
