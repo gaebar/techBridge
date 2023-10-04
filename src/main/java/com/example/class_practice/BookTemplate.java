@@ -1,5 +1,6 @@
 // Teacher example in class
 
+// Assignment:
 // Expand your bookshtore/library class. Create all methods and class variables. Use creativity to make sure
 // all methods are varioables get us3ed.
 // - There must be at least 10 methods
@@ -12,7 +13,7 @@ package com.example.class_practice;
 
 import java.util.Scanner;
 
-public class BookTeacher{
+public class BookTemplate{
 	 String nameOfBook;
 	 String authorFirstName;
 	 String authorLastName;
@@ -29,7 +30,6 @@ public class BookTeacher{
 	 boolean inStock;
 	 
 	 Book [] Books;
-	 
 	 
 	 
 	 
