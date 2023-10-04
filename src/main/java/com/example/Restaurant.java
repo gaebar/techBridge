@@ -23,9 +23,9 @@ public class Restaurant {
     public static void main(String[] args) {
         // Initialize the menu items and prices
         String[] menuItems = {
-            "Appetizer1", "Appetizer2", "Appetizer3", "Appetizer4", "Appetizer5",
-            "Entree1", "Entree2", "Entree3", "Entree4", "Entree5",
-            "Dessert1", "Dessert2", "Dessert3", "Dessert4", "Dessert5"
+            "Bruschetta", "Calamari Fritti", "Carpaccio", "Polpette", "Antipasto Misto", // 5 appetizers
+            "Spaghetti Carbonara", "Risotto Ai Funghi", "Ossobuco", "Saltimbocca", "Frutti Di Mare", // 5 entrees
+            "Tiramisu", "Cannoli", "Panna Cotta", "Gelato", "Sfogliatella" // 5 desserts
         };
         double[] prices = {
             5.99, 6.99, 7.99, 8.99, 9.99,
@@ -48,7 +48,7 @@ public class Restaurant {
             System.out.println("Order " + (successfulOrders + 1) + " of 20.");
             
             // Display the menu
-            System.out.println("Welcome to the drive-through! Here's our menu:");
+            System.out.println("Welcome to 'Veloce Italiano' drive-through! Here's our menu:");
             for (int j = 0; j < menuItems.length; j++) {
                 System.out.println(j + 1 + ". " + menuItems[j] + " - $" + prices[j]);
             }
