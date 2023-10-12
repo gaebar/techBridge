@@ -6,3 +6,16 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+
+# IntelliJ IDEA specific
+.idea/
+*.iml
+
+# Build output
+out/
+
+# Compiled class files
+*.class
+
+# Log files
+*.log

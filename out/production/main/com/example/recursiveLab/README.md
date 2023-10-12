@@ -1,6 +1,4 @@
-# WIP: TechBridge OOP Part 3 Lab
-
-Status: Work in Progress
+# TechBridge OOP Part 3 Lab
 
 ## Description
 
