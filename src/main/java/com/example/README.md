@@ -30,7 +30,6 @@ Here's a brief description of how this repository is organized:
 
 - `src/`: Inside this directory, you'll find the source files for each assignment. Each one is contained within its own separate folder to maintain a clean and organized structure.
 - `README.md`: This file provides a comprehensive overview of what the repository contains and showcases.
-- `CONTRIBUTING.md`: If you are open to collaboration, this file will contain guidelines for how others can contribute to your repository.
 
 ## Getting Started
 
