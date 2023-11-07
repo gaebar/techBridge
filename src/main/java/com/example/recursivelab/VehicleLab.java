@@ -1,4 +1,4 @@
-package com.example.recursiveLab;
+package com.example.recursivelab;
 
 public class VehicleLab {
     public static void main(String[] args) {

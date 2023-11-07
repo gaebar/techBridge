@@ -1,4 +1,4 @@
-package com.example.ComicsApp;
+package com.example.comicsapp;
 
 /**
  * The ComicCharacter class represents a generic character in a comic book.

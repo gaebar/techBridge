@@ -1,4 +1,4 @@
-package com.example.ComicsApp;
+package com.example.comicsapp;
 
 /**
  * The ComicsApp class is the entry point of the application.

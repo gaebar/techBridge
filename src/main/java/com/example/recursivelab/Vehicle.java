@@ -1,4 +1,4 @@
-package com.example.recursiveLab;
+package com.example.recursivelab;
 
 // Vehicle class (Parent)
 public class Vehicle {

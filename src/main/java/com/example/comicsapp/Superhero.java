@@ -1,4 +1,4 @@
-package com.example.ComicsApp;
+package com.example.comicsapp;
 
 /**
  * The Superhero class extends the ComicCharacter class to represent characters

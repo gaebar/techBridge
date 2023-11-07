@@ -1,4 +1,4 @@
-package com.example.recursiveLab;
+package com.example.recursivelab;
 
 public class Car extends Vehicle {
 

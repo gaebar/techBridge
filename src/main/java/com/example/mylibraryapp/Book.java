@@ -1,4 +1,4 @@
-package com.example.MyLibraryApp;
+package com.example.mylibraryapp;
 /**
  * The Book class represents a single book in a library.
  * It contains details such as the name of the book, the author's name, genre, ISBN, and publish date.

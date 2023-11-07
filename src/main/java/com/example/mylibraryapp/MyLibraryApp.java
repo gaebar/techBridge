@@ -1,4 +1,4 @@
-package com.example.MyLibraryApp;
+package com.example.mylibraryapp;
 
 // The MyLibraryApp class serves as the entry point for the application
 public class MyLibraryApp {

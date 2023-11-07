@@ -1,4 +1,4 @@
-package com.example.MyLibraryApp;
+package com.example.mylibraryapp;
 
 /**
  * The Person class represents an individual person with basic personal details.
